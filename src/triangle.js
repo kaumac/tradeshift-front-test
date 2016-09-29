@@ -7,8 +7,13 @@ module.exports = {
         3: 'scalene'
       }
 
+      /*
+        ES6 Provides us with Set's, which has a size method.
+        Using this allows us to check the count os different values in a collection without resorting to "for loops"
+      */
       const differentSidesSize = (new Set(triangleSides)).size
 
+      // return the type of the triangle based on the count of different sides
       return differentSidesMap[differentSidesSize];
     }
   },
@@ -22,6 +27,7 @@ module.exports = {
       return false
     }
     // All sides must be numbers
+    // Using filter instead of a "for loop" to check if any of the values are not a number
     if(triangleSides.filter(side => typeof parseFloat(side) !== 'number').length > 0) {
       return false
     }
